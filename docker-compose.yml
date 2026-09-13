@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: conciliator-postgres
+    environment:
+      POSTGRES_DB: conciliator_db
+      POSTGRES_USER: conciliator_user
+      POSTGRES_PASSWORD: conciliator_pass
+    ports:
+      - "5432:5432"
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
