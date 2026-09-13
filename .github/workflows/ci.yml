@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do Repositório
+      - name: Checkout do Repositorio
         uses: actions/checkout@v4
 
       - name: Configurar JDK 21
@@ -21,8 +21,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Validar Maven Wrapper
-        uses: gradle/wrapper-validation-action@v3
+      - name: Dar permissao de execucao ao Maven Wrapper
+        run: chmod +x mvnw
 
       - name: Executar Testes com Testcontainers
         run: ./mvnw clean test
